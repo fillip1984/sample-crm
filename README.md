@@ -13,7 +13,7 @@ I'm learning a lot of tech here so I wouldn't copy unless you want an amateur's 
   - Tailwind for UI
 - Backend
   - SpringBoot
-    - Rest controllers
+    - Rest controllers (not relying on Spring Data Rest)
     - Spring Data JPA for persistence ORM
     - Postgres for RDBS
     - Basic Auth for now, could switch to OAuth but the real solution would be Open ID Connect (don't want to bother setting up OIDC though)
@@ -33,3 +33,14 @@ I'm learning a lot of tech here so I wouldn't copy unless you want an amateur's 
   - [ ] Produce docker image
   - [ ] Produce K8S deployment artifact
   - [ ] Pick Infrastructure as code (IaC) solution
+- [ ] Test infrastructure/misc infra questions
+  - [ ] Blue/green deployments
+  - [ ] self healing
+  - [ ] degraded performance rerouting
+  - [ ] how does session affinity work? (do users lose their session which nodes are replaced?)
+  - [ ] how does elasticity work?
+  - [ ] any use for API Gateway?
+  - [ ] Cognito security?
+  - [ ] Automatic DNS and certificate generation
+  - [ ] Automatic SSO/OIDC registration and rotation
+  - [ ] Secrets manager
