@@ -15,12 +15,13 @@ tasks.register('npmBuild', NpmTask) {
    
     dependsOn npmInstall
 
-    def props = new Properties()
-    file("${rootDir}/backend/src/main/resources/application.properties").withInputStream { props.load(it)}
-    def rootApiUrl = "http://localhost:${props.getProperty('server.port')}/api"
-    print "Build with root url: '${rootApiUrl}'"
+    // TODO: This was needed at one point for some reason but not sure why now
+    // def props = new Properties()
+    // file("${rootDir}/backend/src/main/resources/application.properties").withInputStream { props.load(it)}
+    // def rootApiUrl = "http://localhost:${props.getProperty('server.port')}/api"
+    // print "Build with root url: '${rootApiUrl}'"
+    // environment = ['VITE_ROOT_API_URL': rootApiUrl]
     
-    environment = ['VITE_ROOT_API_URL': rootApiUrl]
     args = ['run', 'build']
 }
 
