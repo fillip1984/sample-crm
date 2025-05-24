@@ -30,3 +30,10 @@ tasks.register("npmDev", NpmTask) {
     description = 'Runs the frontend in development mode using npm'
     args = ['run', 'dev']
 }
+
+tasks.register("copyOpenApiClient", Copy) {
+    group = 'build'
+    description = 'Copy the OpenAPI client to the build directory'
+    from("${rootDir}/backend/build/generated/openapi/client/typescript")
+    into("$projectDir/src/integrations/openapi")
+}

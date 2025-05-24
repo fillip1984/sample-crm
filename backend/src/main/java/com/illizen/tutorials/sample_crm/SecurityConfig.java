@@ -2,6 +2,8 @@ package com.illizen.tutorials.sample_crm;
 
 import static org.springframework.security.config.Customizer.withDefaults;
 
+import java.util.Arrays;
+
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -9,6 +11,9 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.provisioning.InMemoryUserDetailsManager;
 import org.springframework.security.web.SecurityFilterChain;
+import org.springframework.web.cors.CorsConfiguration;
+import org.springframework.web.cors.CorsConfigurationSource;
+import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 
 import io.swagger.v3.oas.annotations.enums.SecuritySchemeType;
 import io.swagger.v3.oas.annotations.security.SecurityScheme;
@@ -41,7 +46,7 @@ public class SecurityConfig {
                 .httpBasic(withDefaults())
                 // See: https://www.baeldung.com/spring-cors
                 // H2 console required frameOptions be disabled, see: https://springframework.guru/using-the-h2-database-console-in-spring-boot-with-spring-security/
-                .cors(withDefaults())
+                .cors(cors -> cors.configurationSource(withLocalAllowedCorsConfig()))
                 .headers(headers -> {
                     headers.frameOptions(frameOptions -> {
                         frameOptions.disable();
@@ -71,6 +76,21 @@ public class SecurityConfig {
                         .build();
         // @formatter:on
         return new InMemoryUserDetailsManager(user, admin);
+    }
+
+    // See: https://www.baeldung.com/spring-cors#cors-with-spring-security
+    @Bean
+    CorsConfigurationSource withLocalAllowedCorsConfig() {
+        log.warn(
+                "CORS has been enabled for local development with Reat at ports 3000 and 5173. THIS CONFIGURATION SHOULD NOT MAKE IT INTO A QA OR PROD ENVIRONMENT!!!");
+        var configuration = new CorsConfiguration();
+        configuration.setAllowCredentials(true);
+        configuration.setAllowedOrigins(Arrays.asList("http://localhost:3000", "http://localhost:5173"));
+        configuration.addAllowedHeader("*");
+        configuration.addAllowedMethod("*");
+        UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
+        source.registerCorsConfiguration("/**", configuration);
+        return source;
     }
 
 }

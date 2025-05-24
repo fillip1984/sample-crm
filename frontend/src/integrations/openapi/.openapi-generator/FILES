@@ -1,0 +1,8 @@
+.openapi-generator-ignore
+apis/PersonControllerApi.ts
+apis/index.ts
+index.ts
+models/Address.ts
+models/Person.ts
+models/index.ts
+runtime.ts

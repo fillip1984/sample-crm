@@ -2,6 +2,7 @@ plugins {
 	id 'java'
 	id 'org.springframework.boot' version '3.5.0'
 	id 'io.spring.dependency-management' version '1.1.7'
+	id "org.openapi.generator" version "7.12.0"
 }
 
 group = 'com.illizen.tutorials'
@@ -25,7 +26,6 @@ repositories {
 }
 
 dependencies {
-
 	// spring dependencies
 	implementation 'org.springframework.boot:spring-boot-starter-web'
 	// TODO: add back once we begin looking at session affinity
@@ -57,6 +57,7 @@ tasks.named('test') {
 	useJUnitPlatform()
 }
 
+// UI Tasks
 tasks.register('copyWebApp', Copy) {
 	group = 'build'
 	description = 'Copy the frontend web app to the build directory'
@@ -67,3 +68,19 @@ tasks.register('copyWebApp', Copy) {
 }
 compileJava.dependsOn copyWebApp
 processResources.dependsOn copyWebApp
+
+// Open API Tasks
+openApiGenerate {
+	generatorName.set('typescript-fetch')
+	inputSpec.set("$projectDir/sample-crm-api.json")
+	outputDir.set("$buildDir/generated/openapi/client/typescript")
+	// apiPackage.set("com.illizen.tutorials.api")
+	// modelPackage.set("com.illizen.tutorials.model")
+	// configOptions.putAll(
+	// 	"dateLibrary" to "java8",
+	// 	"interfaceOnly" to "true",
+	// 	"skipDefaultInterface" to "true",
+	// 	"basePackage" to "com.illizen.tutorials"
+	// )
+}
+compileJava.dependsOn tasks.openApiGenerate
