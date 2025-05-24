@@ -59,10 +59,10 @@ tasks.named('test') {
 
 tasks.register('copyWebApp', Copy) {
 	group = 'build'
-	description = 'Copy the web app to the build directory'
-
-	dependsOn 
-	from('src/main/webapp')
+	description = 'Copy the frontend web app to the build directory'
+	dependsOn ':frontend:npmBuild'
+	
+	from("${rootDir}/frontend/dist")
 	into("$buildDir/resources/main/static")
 }
 compileJava.dependsOn copyWebApp
