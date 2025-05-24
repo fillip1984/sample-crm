@@ -23,7 +23,7 @@ I'm learning a lot of tech here so I wouldn't copy unless you want an amateur's 
 - [X] Stub out workspace that will build frontend and backend with gradle
 - [ ] Build backend crud for Person and Address entities
   - [X] Test crud with swagger UI
-  - [ ] Produce Typescript artifact from swagger UI to scaffold out the API integration from frontend
+  - [X] Produce Typescript artifact from swagger UI to scaffold out the API integration from frontend
   - [ ] Pick rule engine and try to create some more elaborate business rule validations/flows
   - [ ] Use projections to shape json returned
 - [ ] Build frontend crud UI for Person and Address entities

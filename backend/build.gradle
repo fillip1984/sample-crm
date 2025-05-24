@@ -70,6 +70,9 @@ compileJava.dependsOn copyWebApp
 processResources.dependsOn copyWebApp
 
 // Open API Tasks
+// See: https://github.com/OpenAPITools/openapi-generator/blob/master/modules/openapi-generator-gradle-plugin/README.adoc
+// Probably swap this for https://rehmat-sayany.medium.com/enhancing-type-safety-and-validation-with-zod-use-cases-openapi-integration-and-comparison-with-53ed009c85c6
+// Tutorial with more info here: https://rehmat-sayany.medium.com/enhancing-type-safety-and-validation-with-zod-use-cases-openapi-integration-and-comparison-with-53ed009c85c6
 openApiGenerate {
 	generatorName.set('typescript-fetch')
 	inputSpec.set("$projectDir/sample-crm-api.json")
