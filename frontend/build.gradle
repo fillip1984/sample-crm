@@ -1,0 +1,30 @@
+plugins {
+    id "com.github.node-gradle.node" version "7.1.0"
+}
+
+node {
+    download = false
+    // nodeProjectDir = file("${projectDir}/....")
+}
+
+
+// See: https://medium.com/@dkaluza19/node-web-app-packaged-into-spring-application-with-gradle-97a4801f9e57
+tasks.register('npmBuild', NpmTask) {
+    group = 'build'
+    description = 'Builds the frontend using npm'
+   
+    dependsOn npmInstall
+
+    def props = new Properties()
+    file("${rootDir}/backend/src/main/resources/application.properties").withInputStream { props.load(it)}
+    def rootApiUrl = "http://localhost:${props.getProperty('server.port')}/api"
+    
+    environment = ['VITE_ROOT_API_URL': rootApiUrl]
+    args = ['run', 'build']
+}
+
+tasks.register("npmDev", NpmTask) {
+    group = 'application'
+    description = 'Runs the frontend in development mode using npm'
+    args = ['run', 'dev']
+}
