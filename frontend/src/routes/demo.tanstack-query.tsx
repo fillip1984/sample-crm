@@ -12,6 +12,7 @@ export const Route = createFileRoute("/demo/tanstack-query")({
 });
 
 const adminConfig = new Configuration({
+  basePath: "http://localhost:8080",
   headers: { Authorization: "Basic YWRtaW46YWRtaW4=" },
 });
 

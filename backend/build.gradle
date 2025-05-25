@@ -61,7 +61,7 @@ tasks.register('buildDockerImage', Exec) {
 	group = 'build'
 	description = 'Builds the docker image for the application'
 	dependsOn build
-	commandLine 'docker', 'build', '-t', "${project.group}:${project.name}", '.'
+	commandLine 'docker', 'build', '-t', "${project.group}/${project.name}:${project.version}", '.'
 	workingDir "${projectDir}"	
 }
 build.finalizedBy buildDockerImage
