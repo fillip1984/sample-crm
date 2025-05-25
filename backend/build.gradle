@@ -2,7 +2,7 @@ plugins {
 	id 'java'
 	id 'org.springframework.boot' version '3.5.0'
 	id 'io.spring.dependency-management' version '1.1.7'
-	id "org.openapi.generator" version "7.12.0"
+	id 'org.openapi.generator' version '7.12.0'
 }
 
 group = 'com.illizen.tutorials'
@@ -56,6 +56,15 @@ dependencies {
 // tasks.named('test') {
 // 	useJUnitPlatform()
 // }
+
+tasks.register('buildDockerImage', Exec) {
+	group = 'build'
+	description = 'Builds the docker image for the application'
+	dependsOn build
+	commandLine 'docker', 'build', '-t', "${project.group}:${project.name}", '.'
+	workingDir "${projectDir}"	
+}
+build.finalizedBy buildDockerImage
 
 // UI Tasks
 tasks.register('copyWebApp', Copy) {
