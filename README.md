@@ -22,26 +22,29 @@ I'm learning a lot of tech here so I wouldn't copy unless you want an amateur's 
 
 - [X] Stub out workspace that will build frontend and backend with gradle
 - [X] Add github action workflow to build and try to use caching optimizations
-- [ ] Build backend crud for Person and Address entities
+- [X] Build backend crud for Person and Address entities
   - [X] Test crud with swagger UI
   - [X] Produce Typescript artifact from swagger UI to scaffold out the API integration from frontend
-  - [ ] Pick rule engine and try to create some more elaborate business rule validations/flows
-  - [ ] Use projections to shape json returned
-- [ ] Build frontend crud UI for Person and Address entities
-  - [ ] Test crud with some test framework
-    - [ ] Pick framework (selenium, or something that's typescript based and can do e2e testing)
+- [X] Build frontend crud UI for Person and Address entities
+  - [X] create ui to perform crud capabilities _(create, read all, delete are done)_
 - [ ] Produce deployment artifact
-  - [ ] Produce docker image
+  - [X] Produce docker image
+    - [ ] explore docker compose after checking on K8S
   - [ ] Produce K8S deployment artifact
   - [ ] Pick Infrastructure as code (IaC) solution
 - [ ] Test infrastructure/misc infra questions
   - [ ] Blue/green deployments
   - [ ] self healing
   - [ ] degraded performance rerouting
-  - [ ] how does session affinity work? (do users lose their session which nodes are replaced?)
+  - [ ] how does session affinity work? (do users lose their session when nodes are replaced?)
   - [ ] how does elasticity work?
   - [ ] any use for API Gateway?
   - [ ] Cognito security?
   - [ ] Automatic DNS and certificate generation
   - [ ] Automatic SSO/OIDC registration and rotation
   - [ ] Secrets manager
+- [ ] Test some test framework
+  - [ ] Pick framework (selenium, or something that's typescript based and can do e2e testing)
+- [ ] Nice to haves
+  - [ ] Pick rule engine and try to create some more elaborate business rule validations/flows
+  - [ ] Use projections to shape json returned
