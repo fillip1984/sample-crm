@@ -21,6 +21,7 @@ I'm learning a lot of tech here so I wouldn't copy unless you want an amateur's 
 ## TODOs
 
 - [X] Stub out workspace that will build frontend and backend with gradle
+- [X] Add github action workflow to build and try to use caching optimizations
 - [ ] Build backend crud for Person and Address entities
   - [X] Test crud with swagger UI
   - [X] Produce Typescript artifact from swagger UI to scaffold out the API integration from frontend
