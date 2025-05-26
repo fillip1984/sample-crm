@@ -48,3 +48,30 @@ I'm learning a lot of tech here so I wouldn't copy unless you want an amateur's 
 - [ ] Nice to haves
   - [ ] Pick rule engine and try to create some more elaborate business rule validations/flows
   - [ ] Use projections to shape json returned
+
+## Sources
+
+### Useful tips for things that tripped me up while learning Kubernetes
+
+- [Launch a minikube dashboard so you have a graphical representation of your Kubernetes cluster](https://kubernetes.io/docs/tutorials/hello-minikube/)
+
+- [Create a tunnel to a NodePort/LoadBalance service so you can access your pods from a web browser](https://minikube.sigs.k8s.io/docs/handbook/accessing/)
+  - When running minikube locally and you want to access your services that are running in a web browser you have to tunnel into your minikube cluster since it is a complete separate virtual machine running its own network...
+
+- [Load a docker image from your local instance instead of pulling from remote](https://stackoverflow.com/questions/42564058/how-can-i-use-local-docker-images-with-minikube)
+  - When working on docker and kubernetes at first you will probably not be uploading your images to a repository. This shows you how to load your docker images from your local running docker into the docker that is running within minikube
+  - Don't follow the accepted answer, instead use the minikube image load... example
+
+### Introduction to topics
+
+- [Kubernetes intro](https://www.youtube.com/watch?v=VnvRFRk_51k&list=PLy7NrYWoggjziYQIDorlXjTvvwweTYoNC)
+- [Kubernetes Roadmap](https://www.youtube.com/watch?v=S8eX0MxfnB4&list=PLy7NrYWoggjxWelYwfEPe7YU-DKGFugtt)
+- [DevSecOps intro](https://youtu.be/gLJdrXPn0ns?si=6dOOgdz7eJcUErr8)
+
+### Practical example which goes beyond concepts and builds something
+
+- [Tutorial for Kubernetes that builds out both a front and backend](https://www.youtube.com/watch?v=pGbBuwzyiV4&list=PLuNxlOYbv61h66_QlcjCEkVAj6RdeplJJ)
+  - There are tons of great ideas here. My favorite was where he shows you how to build your yaml files using a [--dryrun command to generate the yaml files instead of writing them from scratch](https://youtu.be/d1X85fhkSKM?si=47qyjq2l_aIwp5Nr&t=1010)
+  - This tutorial uses Lens instead of Minikube (which Nana teaches you) but you can use Minikube instead. If you really want a UI look at running the [Minikube dashboard](https://minikube.sigs.k8s.io/docs/handbook/dashboard/)
+
+- [Example for throwing up a Kubernetes deployment/service](https://medium.com/@platform.engineers/deploying-a-simple-web-application-on-kubernetes-43bbf724c23d)

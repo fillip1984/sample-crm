@@ -1,0 +1,13 @@
+# Service
+apiVersion: v1
+kind: Service
+metadata:
+  name: my-webapp-service
+spec:
+  selector:
+    app: my-webapp
+  type: NodePort # or LoadBalancer
+  ports:
+    - port: 80
+      targetPort: 8080 # Replace with your web app port
+      # nodePort: 30001 # Optional for NodePort
