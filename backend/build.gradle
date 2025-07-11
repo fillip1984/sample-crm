@@ -57,6 +57,8 @@ dependencies {
 // 	useJUnitPlatform()
 // }
 
+println "${githubworkspace} - ${projectDir} - ${buildDir}"
+
 tasks.register('buildDockerImage', Exec) {
 	group = 'build'
 	description = 'Builds the docker image for the application'
